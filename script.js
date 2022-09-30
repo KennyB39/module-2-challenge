@@ -3,9 +3,19 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword(){
 
-  window.prompt("generate secure Password")
+  var userInput = window.prompt("Password Legnth 8 to 128 charecters")
 
+  var passwordLength = parseInt(userInput)
 
+  If (isNaN(passwordLength)) 
+    window.alert("PLEASE CHOOSE A NUMBER -_-")
+    return
+  
+if (passwordLength < 8 || passwordLength > 128) {
+    window.alert("")
+    return 
+}
+   
 
 }
 
