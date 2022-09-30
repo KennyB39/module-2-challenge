@@ -1,6 +1,19 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+function randomInt(min, max) {
+ if (!max){
+  max = min
+  min = 0
+ }
+ var rand = Math.random()
+ return Math.floor(min*(1 - rand)+ rand * max)
+}
+ 
+function getRandomItems(list) {
+
+}
+
 function generatePassword(){
 
   var userInput = window.prompt("Password Legnth 8 to 128 charecters")
@@ -16,8 +29,43 @@ if (passwordLength < 8 || passwordLength > 128) {
     window.alert(" somethings wrong ")
     return 
 }
-   
+ 
+var useNumbers = window.confirm("would you like to use numbers?")
+var useLowercase = window.confirm("would you like to use Lowercase?")
+var useUppercase = window.confirm("would you like to use Uppercase?")
+var useSymbols = window.confirm("would you like to use symbols?")
 
+var numbers = ["0", "1", "2", "3", "4", "5", "6","7", "8","9"]
+var symbols = ["+", "!","@","#","$","%"]
+var Lowercase = ["a", "b","c", "d","e","f","g","h", "i", "j","k", "l","m","n","o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ]
+var Uppercase = ["A", "B","C", "D","E","F","G","H", "I", "J","K", "L","M","N","O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ]
+
+var options = []
+
+
+if (useNumbers === true){
+  options.push(numbers)
+}
+  if (useSymbols === true){
+    options.push(symbols)
+  }
+    if (useLowercase === true){
+    options.push(Lowercase)
+    }
+    if(useUppercase === true){
+    options.push(Uppercase) 
+    }
+    console.log(options)
+
+    var generatePassword = ""
+
+    for (var i = 0; i< passwordLength; i++){
+      var randomItem = getRandomItems(options)
+        var randomChar= getRandomItems(randomItem)
+        generatePassword += randomChar
+    }
+      console.log(generatePassword)
+    
 }
 
 
