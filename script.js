@@ -11,7 +11,7 @@ function randomInt(min, max) {
 }
  
 function getRandomItems(list) {
-
+return list[randomInt(list.length)]
 }
 
 function generatePassword(){
@@ -40,32 +40,40 @@ var symbols = ["+", "!","@","#","$","%"]
 var Lowercase = ["a", "b","c", "d","e","f","g","h", "i", "j","k", "l","m","n","o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ]
 var Uppercase = ["A", "B","C", "D","E","F","G","H", "I", "J","K", "L","M","N","O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ]
 
-var options = []
+var optionsList = []
 
 
 if (useNumbers === true){
-  options.push(numbers)
+  optionsList.push(numbers)
 }
   if (useSymbols === true){
-    options.push(symbols)
+    optionsList.push(symbols)
   }
     if (useLowercase === true){
-    options.push(Lowercase)
+    optionsList.push(Lowercase)
     }
     if(useUppercase === true){
-    options.push(Uppercase) 
+    optionsList.push(Uppercase) 
     }
-    console.log(options)
 
-    var generatePassword = ""
-
-    for (var i = 0; i< passwordLength; i++){
-      var randomItem = getRandomItems(options)
-        var randomChar= getRandomItems(randomItem)
-        generatePassword += randomChar
+    if (optionsList == 0){
+      optionsList.push(Lowercase)
     }
-      console.log(generatePassword)
-    
+     console.log(optionsList)
+
+  
+  
+     var generatePassword = ""
+
+
+
+     for (var i = 0; i< passwordLength; i++){
+       var randomItem = getRandomItems(optionsList)
+          var randomChar= getRandomItems(randomItem)
+       generatePassword += randomChar
+     }
+       console.log(generatePassword)
+        return generatePassword
 }
 
 
