@@ -10,7 +10,7 @@ function randomInt(min, max) {
  return Math.floor(min*(1 - rand)+ rand * max)
 }
  
-function getRandomItems(list) {
+function getItems(list) {
 return list[randomInt(list.length)]
 }
 
@@ -68,8 +68,8 @@ if (useNumbers === true){
 
 
      for (var i = 0; i< passwordLength; i++){
-       var randomItem = getRandomItems(optionsList)
-          var randomChar= getRandomItems(randomItem)
+       var randomItem = getItems(optionsList)
+          var randomChar= getItems(randomItem)
        generatePassword += randomChar
      }
        console.log(generatePassword)
